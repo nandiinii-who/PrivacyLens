@@ -1,0 +1,25 @@
+
+# macOS files
+.DS_Store
+
+# Compiled C++ files
+*.o
+*.out
+*.exe
+backend/privacylens
+
+# Build folders
+build/
+backend/build/
+
+# Temporary files
+*.log
+*.tmp
+
+# Environment files
+.env
+.env.*
+
+# Python cache
+__pycache__/
+*.pyc

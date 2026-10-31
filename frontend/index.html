@@ -1,0 +1,195 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>PrivacyLens</title>
+
+<link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+
+    <header>
+        <h2>🔐 PrivacyLens</h2>
+        <p>Privacy First. Share Safely.</p>
+    </header>
+
+    <main>
+        <h1>Protect What Matters.</h1>
+
+        <p>
+            Detect and hide sensitive information
+            in screenshots before sharing them.
+        </p>
+
+        <section>
+            <h2>Upload Image</h2>
+
+            <p>Select a PNG or JPEG image.</p>
+
+            <input
+                type="file"
+                id="imageUpload"
+                accept="image/png,image/jpeg"
+            >
+
+<!-- OCR Button -->
+
+
+<div class="screenshotActions">
+
+    <button id="scanButton" disabled>
+        Scan Screenshot
+    </button>
+
+    <button id="autoRedactButton" disabled>
+        Auto-Protect Screenshot
+    </button>
+
+</div>
+
+<!-- OCR Results -->
+
+<div id="ocrSection" style="display: none;">
+
+    <h3>Extracted Text</h3>
+
+    <pre id="extractedText"></pre>
+
+    <h3>Detected Sensitive Information</h3>
+
+    <p id="ocrDetectionResult"></p>
+
+</div>
+
+
+<!-- Screenshot Preview Section -->
+
+<!-- Detection Test Section -->
+
+<section id="detectionTest">
+
+    <h2>Test Sensitive Information Detection</h2>
+
+    <textarea
+        id="testText"
+        rows="4"
+        placeholder="Enter text containing an email or phone number"
+    ></textarea>
+
+    <br>
+
+<div class="detectionActions">
+
+    <button id="detectButton" type="button">
+        Detect Sensitive Information
+    </button>
+
+    <button id="clearDetectionButton" type="button">
+        Clear Results
+    </button>
+
+</div>
+
+<!-- Existing JavaScript detection results -->
+<p id="detectionResult"></p>
+
+<!-- New C++ backend detection results -->
+<p id="cppDetectionResult" aria-live="polite"></p>
+
+</section>
+
+
+<!-- Before and After Preview -->
+
+<div id="previewSection">
+
+    <h2>Screenshot Comparison</h2>
+
+    <div class="comparisonContainer">
+
+        <!-- Original Screenshot -->
+        <div class="imageBox previewCard">
+
+            <h3>Before - Original</h3>
+
+            <img
+                id="imagePreview"
+                alt="Original Screenshot"
+            >
+
+        </div>
+
+       
+<!-- Protected Screenshot -->
+<div class="imageBox previewCard">
+
+    <h3>After - Protected</h3>
+
+    <div id="protectedPlaceholder">
+        Upload a screenshot to begin.
+    </div>
+
+    <canvas id="protectedCanvas"></canvas>
+
+    
+<div class="editingTools">
+
+    <button id="blurButton" class="editButton" disabled>
+        Blur Area
+    </button>
+
+    <button id="hideSelectionButton" class="editButton" disabled>
+        Hide Area
+    </button>
+
+</div>
+
+
+<div class="finalActions">
+
+    <button id="resetButton" type="button" disabled>
+        Reset Image
+    </button>
+
+    <button id="downloadButton" type="button" disabled>
+        Download Protected Screenshot
+    </button>
+
+</div>
+
+
+</div>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<p id="statusMessage">
+    Select a screenshot to begin.
+</p>
+
+        </section>
+    </main>
+
+
+
+<!-- Tesseract OCR Library -->
+<script src="https://cdn.jsdelivr.net/npm/tesseract.js@5/dist/tesseract.min.js"></script>
+
+<!-- PrivacyLens JavaScript -->
+<script src="detection.js"></script>
+<script src="script.js"></script>
+
+
+</body>
+</html>
